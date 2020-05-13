@@ -38,6 +38,6 @@ end
 
 Return a set of adjacent nodes to u in graph G.
 """
-function get_adjacent_nodes(G, u)
-    return G.adjacency_lists[u]
+function get_adjacent_nodes(G::Graph{T}, u) where T
+    return get(G.adjacency_lists, u, Set{T}())
 end
