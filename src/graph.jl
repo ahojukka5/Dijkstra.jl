@@ -19,3 +19,12 @@ function add_edge!(G, u, v, w)
     end
     push!(G.adjacency_lists[u], v)
 end
+
+"""
+    get_edge_weight(G, u, v)
+
+Return edge (u, v) weight from graph G.
+"""
+function get_edge_weight(G, u, v)
+    return G.edge_weights[(u, v)]
+end
