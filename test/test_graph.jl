@@ -24,6 +24,4 @@ add_edge!(G, 1, 3, 2)
 using Random
 Random.seed!(1)
 G = generate_random_graph(10, 0.5, 1, 10)
-adj1 = get_adjacent_nodes(G, 0)
-adj2 = Set([1, 2, 6, 7, 9])
-@test setdiff(adj1, adj2) == Set([])
+@test get_adjacent_nodes(G, 1) == Set([7, 4, 10, 2, 3])
