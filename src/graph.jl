@@ -41,3 +41,22 @@ Return a set of adjacent nodes to u in graph G.
 function get_adjacent_nodes(G::Graph{T}, u) where T
     return get(G.adjacency_lists, u, Set{T}())
 end
+
+"""
+    generate_random_graph(nvertices, edge_density, min_weight, max_weight)
+
+Generate random graph for test purposes.
+"""
+function generate_random_graph(nvertices, edge_density, min_weight, max_weight)
+    G = Graph()
+    for u in 1:nvertices
+        nadj = round(Int, nvertices * edge_density)
+        while length(get_adjacent_nodes(G, u)) < nadj
+            v = rand(1:nvertices)
+            u == v && continue
+            w = rand(min_weight:max_weight)
+            add_edge!(G, u, v, w)
+        end
+    end
+    return G
+end
