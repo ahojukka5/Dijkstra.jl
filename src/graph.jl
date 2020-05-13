@@ -28,3 +28,12 @@ Return edge (u, v) weight from graph G.
 function get_edge_weight(G, u, v)
     return G.edge_weights[(u, v)]
 end
+
+"""
+    get_adjacent_nodes(G, u)
+
+Return a set of adjacent nodes to u in graph G.
+"""
+function get_adjacent_nodes(G, u)
+    return G.adjacency_lists[u]
+end
