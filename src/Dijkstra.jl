@@ -1,0 +1,3 @@
+module Dijkstra
+
+end # module
