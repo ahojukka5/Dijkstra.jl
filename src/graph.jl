@@ -3,8 +3,12 @@ struct Graph{T}
     edge_weights :: Dict{Tuple{T, T}, Float64}
 end
 
+function Graph{T}() where T
+    return Graph{T}(Dict(), Dict())
+end
+
 function Graph()
-    return Graph{Int}(Dict(), Dict())
+    return Graph{Int}()
 end
 
 """
